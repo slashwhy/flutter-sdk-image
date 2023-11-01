@@ -31,7 +31,7 @@ jobs:
 
       - name: Compare versions
         id: compare-versions
-        run: echo "is-lower=$(python -c "import re; from distutils.version import LooseVersion; print(LooseVersion(re.search(r'\d+\.\d+\.\d+', '${{ steps.flutter-version.outputs.flutter-version }}').group(0)) > LooseVersion('${{ steps.latest-tag.outputs.tag }}'))")" >> $GITHUB_OUTPUT
+        run: echo "is-lower=$(python -c "import re; from distutils.version import LooseVersion; print(LooseVersion(re.search(r'\d+\.\d+\.\d+', '${{ steps.flutter-action.outputs.VERSION }}').group(0)) > LooseVersion('${{ steps.latest-tag.outputs.tag }}'))")" >> $GITHUB_OUTPUT
       - name: Create pull request if necessary
         if: ${{ steps.compare-versions.outputs.is-lower == 'True' }}
         run: echo current flutter version is higher
