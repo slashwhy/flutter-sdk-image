@@ -45,4 +45,4 @@ jobs:
         run: |
           echo "Current tag is ${{ steps.get-versions.outputs.CURRENT_TAG }}"
           echo "Latest tag is ${{ steps.get-versions.outputs.LATEST_TAG }}"
-          echo "${{ steps.version.outputs.comparison-result }}"
+          echo "${{ steps.compare-versions.outputs.comparison-result }}"
