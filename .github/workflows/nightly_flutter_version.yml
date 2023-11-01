@@ -16,8 +16,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
-          fetch-tags: 'true'
-  
+          fetch-tags: "true"
+          fetch-depth: 0
+
       - name: Get latest stable Flutter version
         id: flutter-version
         uses: subosito/flutter-action@v2
