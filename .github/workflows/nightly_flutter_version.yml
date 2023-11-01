@@ -1,0 +1,30 @@
+name: Check Flutter Version
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  check-flutter-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get latest stable Flutter version
+        id: flutter-version
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Get latest tag
+        id: latest-tag
+        run: echo ::set-output name=tag::$(git describe --tags $(git rev-list --tags --max-count=1))
+
+      - name: Compare versions
+        id: compare-versions
+        run: echo ::set-output name=is-lower::$(python -c "import re; from distutils.version import LooseVersion; print(LooseVersion(re.search(r'\d+\.\d+\.\d+', '${{ steps.flutter-version.outputs.flutter-version }}').group(0)) > LooseVersion('${{ steps.latest-tag.outputs.tag }}'))")
+
+      - name: Create pull request if necessary
+        if: ${{ steps.compare-versions.outputs.is-lower == 'True' }}
+        run: echo current flutter version is higher
