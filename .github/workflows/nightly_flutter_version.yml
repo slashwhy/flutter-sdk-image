@@ -25,13 +25,18 @@ jobs:
         with:
           channel: "stable"
 
-      - name: Get latest tag
-        id: latest-tag
-        run: echo CURRENT_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+      - name: Get versions
+        id: get-versions
+        run: |
+          echo CURRENT_TAG=$(git describe --tags $(git rev-list --tags --max-count=1)) >> $GITHUB_OUTPUT
+          echo LATEST_TAG=${{ steps.flutter-action.outputs.VERSION }} >> $GITHUB_OUTPUT
 
       - name: Compare versions
         id: compare-versions
-        run: echo LATEST_VERSION=${{ steps.flutter-action.outputs.VERSION }}
+        run: |
+          echo current tag: ${{ steps.get-versions.outputs.CURRENT_TAG }} 
+          echo latest tag: ${{ steps.get-versions.outputs.LATEST_TAG }}
+
       - name: Create pull request if necessary
         if: ${{ steps.compare-versions.outputs.is-lower == 'True' }}
         run: echo current flutter version is higher
