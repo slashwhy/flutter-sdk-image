@@ -27,7 +27,7 @@ jobs:
 
       - name: Get latest tag
         id: latest-tag
-        run: echo CURRENT_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))"
+        run: echo CURRENT_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
 
       - name: Compare versions
         id: compare-versions
