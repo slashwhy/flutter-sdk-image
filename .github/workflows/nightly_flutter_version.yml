@@ -46,3 +46,8 @@ jobs:
           echo Newer stable flutter version found
           echo "Current tag is ${{ steps.get-versions.outputs.CURRENT_TAG }}"
           echo "Latest tag is ${{ steps.get-versions.outputs.LATEST_TAG }}"
+          framework_line=$(echo "$(flutter --version)" | grep "Framework")  
+          revision=$(echo "$framework_line" | sed -E 's/.*revision ([^ ]+).*/\1/')
+          date=$(echo "$framework_line" | sed -E 's/.*([0-9]{4})-([0-9]{2})-([0-9]{2}).*/\1-\2-\3/')
+          echo "Revision: $revision"
+          echo "Date: $date"
