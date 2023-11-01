@@ -33,10 +33,16 @@ jobs:
 
       - name: Compare versions
         id: compare-versions
-        run: |
-          echo current tag: ${{ steps.get-versions.outputs.CURRENT_TAG }} 
-          echo latest tag: ${{ steps.get-versions.outputs.LATEST_TAG }}
+        uses: madhead/semver-utils@latest
+        with:
+          # A version to work with
+          version: ${{ steps.get-versions.outputs.CURRENT_TAG }}
+          # A version to compare against
+          compare-to: ${{ steps.get-versions.outputs.LATEST_TAG }}
 
       - name: Create pull request if necessary
-        if: ${{ steps.compare-versions.outputs.is-lower == 'True' }}
-        run: echo current flutter version is higher
+        #if: ${{ steps.version.outputs.comparison-result == "<" }}
+        run: |
+          echo "Current tag is ${{ steps.get-versions.outputs.CURRENT_TAG }}"
+          echo "Latest tag is ${{ steps.get-versions.outputs.LATEST_TAG }}"
+          echo "${{ steps.version.outputs.comparison-result }}"
