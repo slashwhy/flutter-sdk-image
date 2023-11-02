@@ -36,7 +36,7 @@ jobs:
           # A version to compare against
           compare-to: ${{ steps.get-versions.outputs.CURRENT_TAG }}
 
-      - name: Establish version, revision and date
+      - name: Update Files
         if: ${{ steps.compare-versions.outputs.comparison-result == '>' }}
         run: |
           echo Newer stable flutter version found
@@ -46,6 +46,9 @@ jobs:
           echo "Current tag is ${{ steps.get-versions.outputs.CURRENT_TAG }}"
           echo "Latest tag is ${{ steps.get-versions.outputs.LATEST_TAG }} | Revision: $revision | Date: $date"
           sed -i "s/ENV FLUTTER_VERSION=.*/ENV FLUTTER_VERSION=\"${{ steps.get-versions.outputs.LATEST_TAG }}\"/" Dockerfile
+          sed -i "s/|.*|/| ${{ steps.get-versions.outputs.LATEST_TAG }} | $revision | $date |/" Readme.md
+          sed -i "/## Releases/a | ${{ steps.get-versions.outputs.LATEST_TAG }} | ${{ steps.get-versions.outputs.LATEST_TAG }} | stable |" Readme.md
+          sed -i "s/slashwhyorganization\/flutter-sdk-image:${{ steps.get-versions.outputs.CURRENT_TAG }}/slashwhyorganization\/flutter-sdk-image:${{ steps.get-versions.outputs.LATEST_TAG }}/g" Readme.md
 
       - name: Create Pull Request
         if: ${{ steps.compare-versions.outputs.comparison-result == '>' }}
