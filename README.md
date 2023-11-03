@@ -6,12 +6,13 @@ Currently:
 
 | Version | Ref     | Release Date |
 | ------- | ------- | ------------ |
-| 3.13.4  | 367f9ea | 2023/09/13   |
+| 3.13.5  | 12fccda | 2023/09/20   |
 
 ## Releases
 
 | Tag               | Flutter Version   | Flutter Channel |
 | ----------------- | ----------------- | --------------- |
+| 3.13.5            | 3.13.5            | stable          |
 | 3.13.4            | 3.13.4            | stable          |
 | 3.13.2            | 3.13.2            | stable          |
 | 3.13.1            | 3.13.1            | stable          |
@@ -72,7 +73,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: slashwhyorganization/flutter-sdk-image:3.13.4
+      - image: slashwhyorganization/flutter-sdk-image:3.13.5
     steps:
       - checkout
       - run:
@@ -99,7 +100,7 @@ services:
   - docker
 
 env:
-  - DOCKER_IMAGE=slashwhyorganization/flutter-sdk-image:3.13.4
+  - DOCKER_IMAGE=slashwhyorganization/flutter-sdk-image:3.13.5
 
 before_install:
   - docker pull $DOCKER_IMAGE
@@ -122,7 +123,7 @@ Example:
 
 ```
 # .gitlab-ci.yml
-image: slashwhyorganization/flutter-sdk-image:3.13.4
+image: slashwhyorganization/flutter-sdk-image:3.13.5
 
 stages:
     - build
