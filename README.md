@@ -10,54 +10,7 @@ Currently:
 
 ## Releases
 
-| Tag               | Flutter Version   | Flutter Channel |
-| ----------------- | ----------------- | --------------- |
-| 3.13.9            | 3.13.9            | stable          |
-| 3.13.8            | 3.13.8            | stable          |
-| 3.13.7            | 3.13.7            | stable          |
-| 3.13.6            | 3.13.6            | stable          |
-| 3.13.5            | 3.13.5            | stable          |
-| 3.13.4            | 3.13.4            | stable          |
-| 3.13.2            | 3.13.2            | stable          |
-| 3.13.1            | 3.13.1            | stable          |
-| 3.13.0            | 3.13.0            | stable          |
-| 3.10.3            | 3.10.3            | stable          |
-| 3.10.2            | 3.10.2            | stable          |
-| 3.10.1            | 3.10.1            | stable          |
-| 3.10.0            | 3.10.0            | stable          |
-| 3.7.12            | 3.7.12            | stable          |
-| 3.7.11            | 3.7.11            | stable          |
-| 3.7.10            | 3.7.10            | stable          |
-| 3.7.9             | 3.7.9             | stable          |
-| 3.7.8             | 3.7.8             | stable          |
-| 3.7.7             | 3.7.7             | stable          |
-| 2.0.1             | 2.0.1             | stable          |
-| 1.22.5            | 1.22.5            | stable          |
-| 1.22.4            | 1.22.4            | stable          |
-| 1.22.3            | 1.22.3            | stable          |
-| 1.22.2            | 1.22.2            | stable          |
-| 1.22.1            | 1.22.1            | stable          |
-| 1.22.0            | 1.22.0            | stable          |
-| 1.20.4            | 1.20.4            | stable          |
-| 1.20.3            | 1.20.3            | stable          |
-| 1.20.2            | 1.20.2            | stable          |
-| 1.20.1            | 1.20.1            | stable          |
-| 1.20.0            | 1.20.0            | stable          |
-| 1.17.5            | 1.17.5            | stable          |
-| 1.17.4            | 1.17.4            | stable          |
-| 1.17.3            | 1.17.3            | stable          |
-| 1.17.2            | 1.17.2            | stable          |
-| 1.17.1            | 1.17.1            | stable          |
-| 1.17.0            | 1.17.0            | stable          |
-| v1.12.13-hotfix.9 | v1.12.13+hotfix.9 | stable          |
-| v1.12.13-hotfix.8 | v1.12.13+hotfix.8 | stable          |
-| v1.12.13-hotfix.7 | v1.12.13+hotfix.7 | stable          |
-| v1.12.13-hotfix.5 | v1.12.13+hotfix.5 | stable          |
-| v1.9.1-hotfix.6   | v1.9.1+hotfix.6   | stable          |
-| v1.9.1-hotfix.5   | v1.9.1+hotfix.5   | stable          |
-| v1.9.1-hotfix.4   | v1.9.1+hotfix.4   | stable          |
-| v1.9.1-hotfix.2   | v1.9.1+hotfix.2   | stable          |
-| v1.7.8-hotfix.4   | v1.7.8+hotfix.4   | stable          |
+For a full list of releases, see the [releases page](https://github.com/slashwhy/flutter-sdk-image/releases) of this repository.
 
 ## Usage
 
@@ -140,10 +93,7 @@ release_build:
         - flutter build apk
 ```
 
-Example Project: https://gitlab.com/mobiledevops/flutter-ci-demo
-
 ---
 
 [Contributing](.github/CONTRIBUTING.md)
-
 [Code of Conduct](.github/CODE_OF_CONDUCT.md)
