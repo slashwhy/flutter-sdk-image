@@ -1,6 +1,6 @@
 FROM mobiledevops/android-sdk-image:33.0.2
 
-ENV FLUTTER_VERSION="3.13.9"
+ENV FLUTTER_VERSION="3.16.0"
 ENV FLUTTER_HOME "/home/mobiledevops/.flutter-sdk"
 ENV PUB_CACHE "/home/mobiledevops/.pub-cache"
 

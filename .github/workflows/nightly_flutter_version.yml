@@ -48,7 +48,7 @@ jobs:
           framework_line=$(echo "$(flutter --version)" | grep "Framework")  
           revision=$(echo "$framework_line" | sed -E 's/.*revision ([^ ]+).*/\1/')
           date=$(echo "$framework_line" | sed -E 's/.*([0-9]{4})-([0-9]{2})-([0-9]{2}).*/\1-\2-\3/')
-          sed -i "s@<a href=\"https://github.com/slashwhy/flutter-sdk-image/releases/tag/\${{ steps.get-versions.outputs.CURRENT_TAG }}\"><img src=\"https://img.shields.io/badge/Current%20version-\${{ steps.get-versions.outputs.CURRENT_TAG }}-blue.svg\"/></a>@<a href=\"https://github.com/slashwhy/flutter-sdk-image/releases/tag/\${{ steps.get-versions.outputs.CURRENT_TAG }}\"><img src=\"https://img.shields.io/badge/Current%20version-\${{ steps.get-versions.outputs.LATEST_TAG }}-blue.svg\"/></a>@g" README.md
+          sed -i "s@<a href=\"https://github.com/slashwhy/flutter-sdk-image/releases/tag/${{ steps.get-versions.outputs.CURRENT_TAG }}\"><img src=\"https://img.shields.io/badge/Current%20version-${{ steps.get-versions.outputs.CURRENT_TAG }}-blue.svg\"/></a>@<a href=\"https://github.com/slashwhy/flutter-sdk-image/releases/tag/${{ steps.get-versions.outputs.CURRENT_TAG }}\"><img src=\"https://img.shields.io/badge/Current%20version-${{ steps.get-versions.outputs.LATEST_TAG }}-blue.svg\"/></a>@g" README.md
           sed -i "s/slashwhyorganization\/flutter-sdk-image:${{ steps.get-versions.outputs.CURRENT_TAG }}/slashwhyorganization\/flutter-sdk-image:${{ steps.get-versions.outputs.LATEST_TAG }}/g" README.md
 
       - name: Create Pull Request
