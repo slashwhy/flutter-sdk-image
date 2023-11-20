@@ -93,3 +93,10 @@ release_build:
 
 [Contributing](.github/CONTRIBUTING.md)
 [Code of Conduct](.github/CODE_OF_CONDUCT.md)
+
+<br>
+<center> 
+
+[![Developed with ❤️ by slashwhy](https://img.shields.io/badge/Developed_with_❤️-by_slashwhy-EA425B?labelColor=fff)](https://slashwhy.de/en/)
+
+</center>
