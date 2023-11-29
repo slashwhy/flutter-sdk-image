@@ -2,7 +2,7 @@
 
 Docker image to build a Flutter app `*.apk` for Android. The latest image contains always the latest stable version of the Flutter SDK: https://flutter.dev/docs/development/tools/sdk/releases?tab=linux
 
-<a href="https://github.com/slashwhy/flutter-sdk-image/releases/tag/3.16.0"><img src="https://img.shields.io/badge/Current%20version-3.16.1-blue.svg"/></a>
+<a href="https://github.com/slashwhy/flutter-sdk-image/releases/tag/3.16.1"><img src="https://img.shields.io/badge/Current%20version-3.16.1-blue.svg"/></a>
 
 ## Releases
 
