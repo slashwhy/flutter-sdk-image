@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-tags: "true"
           fetch-depth: 0
-          ref: master
+          ref: main
 
       - name: Get latest stable Flutter version
         id: flutter-action
