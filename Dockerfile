@@ -1,4 +1,4 @@
-FROM mobiledevops/android-sdk-image:34.0.0
+FROM mobiledevops/android-sdk-image:34.0.0-jdk17
 
 ENV FLUTTER_VERSION="3.16.5"
 ENV FLUTTER_HOME "/home/mobiledevops/.flutter-sdk"
