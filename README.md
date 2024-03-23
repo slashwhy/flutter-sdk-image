@@ -2,7 +2,7 @@
 
 Docker image to build a Flutter app `*.apk` for Android. The latest image contains always the latest stable version of the Flutter SDK: https://flutter.dev/docs/development/tools/sdk/releases?tab=linux
 
-<a href="https://github.com/slashwhy/flutter-sdk-image/releases/tag/3.19.3"><img src="https://img.shields.io/badge/Current%20version-3.19.3-blue.svg"/></a>
+<a href="https://github.com/slashwhy/flutter-sdk-image/releases/tag/3.19.4"><img src="https://img.shields.io/badge/Current%20version-3.19.4-blue.svg"/></a>
 
 ## Releases
 
@@ -26,7 +26,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: slashwhyorganization/flutter-sdk-image:3.19.3
+      - image: slashwhyorganization/flutter-sdk-image:3.19.4
     steps:
       - checkout
       - run:
@@ -53,7 +53,7 @@ services:
   - docker
 
 env:
-  - DOCKER_IMAGE=slashwhyorganization/flutter-sdk-image:3.19.3
+  - DOCKER_IMAGE=slashwhyorganization/flutter-sdk-image:3.19.4
 
 before_install:
   - docker pull $DOCKER_IMAGE
@@ -76,7 +76,7 @@ Example:
 
 ```
 # .gitlab-ci.yml
-image: slashwhyorganization/flutter-sdk-image:3.19.3
+image: slashwhyorganization/flutter-sdk-image:3.19.4
 
 stages:
     - build
