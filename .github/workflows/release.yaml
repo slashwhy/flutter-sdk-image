@@ -6,6 +6,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  DOCKERHUB_NAMESPACE: slashwhyorganization
+  DOCKERHUB_REPOSITORY: flutter-sdk-image
 
 jobs:
   release:
@@ -36,7 +38,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            slashwhyorganization/flutter-sdk-image
+            ${{ env.DOCKERHUB_NAMESPACE }}/${{ env.DOCKERHUB_REPOSITORY }}
             ${{ env.REGISTRY }}/${{ github.repository }}
       
       - name: Build and push Docker images

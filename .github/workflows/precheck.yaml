@@ -1,17 +1,21 @@
-name: Pull Request
+name: Precheck
 
 on:
   pull_request:
     branches:
       - main
-
+  push:
+    branches:
+      - main
 
 env:
   REGISTRY: ghcr.io
+  DOCKERHUB_NAMESPACE: slashwhyorganization
+  DOCKERHUB_REPOSITORY: flutter-sdk-image
 
 jobs:
   pull-request:
-    name: Build Docker image when creating PR on Main
+    name: Prebuild docker image
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -38,7 +42,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            slashwhyorganization/flutter-sdk-image
+            ${{ env.DOCKERHUB_NAMESPACE }}/${{ env.DOCKERHUB_REPOSITORY }}
             ${{ env.REGISTRY }}/${{ github.repository }}
       
       - name: Build Docker image
