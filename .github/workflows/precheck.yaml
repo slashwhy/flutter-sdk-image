@@ -1,8 +1,12 @@
-name: Release
+name: Precheck
 
 on:
-  release:
-    types: [published]
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
 env:
   REGISTRY: ghcr.io
@@ -10,8 +14,8 @@ env:
   DOCKERHUB_REPOSITORY: flutter-sdk-image
 
 jobs:
-  release:
-    name: Push Docker image to multiple registries
+  pull-request:
+    name: Prebuild docker image
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -25,14 +29,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      
-      - name: Log in to the Container registry
+
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
+      
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
@@ -41,10 +45,13 @@ jobs:
             ${{ env.DOCKERHUB_NAMESPACE }}/${{ env.DOCKERHUB_REPOSITORY }}
             ${{ env.REGISTRY }}/${{ github.repository }}
       
-      - name: Build and push Docker images
+      - name: Build Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: true
+          push: false
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+     
+      
+        
