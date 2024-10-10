@@ -53,7 +53,7 @@ jobs:
 
       - name: Create Pull Request
         if: ${{ steps.compare-versions.outputs.comparison-result == '>' }}
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: Update to ${{ steps.get-versions.outputs.LATEST_TAG }}
           title: Update to ${{ steps.get-versions.outputs.LATEST_TAG }}
